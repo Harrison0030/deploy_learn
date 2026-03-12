@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Courses</title>
+</head>
+
+<body>
+
+    <h2>Select Course</h2>
+
+    <select id="courseDropdown">
+        <option>Loading...</option>
+    </select>
+
+    <script>
+
+        fetch("http://localhost:3000/courses")
+            .then(response => response.json())
+            .then(data => {
+
+                const dropdown = document.getElementById("courseDropdown");
+                dropdown.innerHTML = "";
+
+                data.forEach(course => {
+
+                    const option = document.createElement("option");
+                    option.value = course.sno;
+                    option.text = course.course_name;
+
+                    dropdown.appendChild(option);
+
+                });
+
+            });
+
+    </script>
+
+</body>
+
+</html>
