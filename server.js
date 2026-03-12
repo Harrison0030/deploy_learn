@@ -6,10 +6,11 @@ const app = express();
 app.use(cors());
 
 const db = mysql.createConnection({
-    host: "localhost",
+    host: "gondola.proxy.rlwy.net",
     user: "root",
-    password: "6815",
-    database: "course_db"
+    password: "zKyugtVcMZUsuuozkgdLuJLlbDhFImrb",
+    database: "railway",
+    port: 40200
 });
 
 app.get("/courses", (req, res) => {
